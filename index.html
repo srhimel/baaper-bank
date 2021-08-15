@@ -11,9 +11,28 @@
 </head>
 
 <body>
-    <div class="welcome text-center mt-20 shadow-2xl w-1/2 m-auto p-6 rounded-xl">
-        <h1 class="text-5xl ">Welcome to <span class="font-bold text-green-600">Baaper Bank.</span> </h1>
-        <h2 class="mt-2 text-2xl tracking-widest font-thin text-gray-400">The only free bank by born!</h2>
+
+    <div class="h-screen bg-gray-900 flex flex-col space-y-10 justify-center items-center">
+        <div class="bg-white w-96 shadow-xl rounded p-5">
+            <h1 class="text-3xl font-medium text-center">Welcome Back Son</h1>
+            <p class="text-sm text-center text-blue-700">Login to access your Baper Bank!</p>
+
+            <div class="space-y-5 mt-5" target="POST">
+                <input id="userEmail" type="email" class="w-full h-12 border border-gray-800 rounded px-3"
+                    placeholder="Your Emal" value="sontan@abbu.com" />
+                <input id="userPass" type="password" class="w-full h-12 border border-gray-800 rounded px-3"
+                    placeholder="Password" value="valoabbu" />
+                <span class="text-red-700 mr-2 text-sm" id="error"></span>
+
+                <div class="">
+                    <a href="#!" class="font-medium text-blue-900 rounded-md p-2"> Forgot Password
+                        ?</a>
+                </div>
+
+                <button class="text-center w-full bg-blue-800 hover:bg-blue-900 rounded-md text-white py-3 font-medium"
+                    id="userSubmit">Login</button>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

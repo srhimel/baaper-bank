@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-900 ">
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-4 w-2/3 m-auto mt-6">
+        <div class="bg-green-700 text-white rounded-xl p-6">
+            <p class="text-2xl"> Deposit</p>
+            <p class="text-5xl"> $<span id="depoAmount">00</span> </p>
+        </div>
+        <div class="bg-red-700 text-white rounded-xl p-6">
+            <p class="text-2xl"> Withdraw</p>
+            <p class="text-5xl">$<span id="withdraw">00</span></p>
+        </div>
+        <div class="bg-blue-700 text-white rounded-xl p-6">
+            <p class="text-2xl"> Balance</p>
+            <p class="text-5xl">$<span id="balance">00</span></p>
+        </div>
+    </div>
+    <div class="grid lg:grid-cols-2 md:grid-cols-2 gap-6 w-2/3 m-auto mt-4">
+        <div class="space-y-5 mt-5 bg-green-100 p-6 rounded-xl" target="POST">
+            <p class="text-4xl">Please Enter Deopsit Amount</p>
+            <input id="depoInput" type="text" class="w-full h-12 border border-gray-800 rounded px-3"
+                placeholder="Deposite Amount" />
+
+            <button class="text-center w-full bg-green-800 hover:bg-green-900 rounded-md text-white py-3 font-medium"
+                id="depoSubmit">Deposit</button>
+        </div>
+        <div class="space-y-5 mt-5 bg-red-100 p-6 rounded-xl" target="POST">
+            <p class="text-4xl">Please Enter Withdraw Amount</p>
+            <input id="witInput" type="text" class="w-full h-12 border border-gray-800 rounded px-3"
+                placeholder="Withdraw Amount" />
+            <button class="text-center w-full bg-red-800 hover:bg-red-900 rounded-md text-white py-3 font-medium"
+                id="witSubmit">Withdraw</button>
+        </div>
+    </div>
+
+    <script src="bank.js">
+
+    </script>
+</body>
+
+</html>
