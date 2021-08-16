@@ -1,26 +1,41 @@
-document.getElementById('depoSubmit').addEventListener('click', function () {
-    const depoAmount = document.getElementById('depoAmount');
-    const preDepo = parseFloat(depoAmount.innerText);
-    const depoInput = document.getElementById('depoInput');
-    const currDep = parseFloat(depoInput.value);
+function givenInput(fromId) {
+    const inputValue = document.getElementById(fromId);
+    const currValue = parseFloat(inputValue.value);
+    inputValue.value = '';
+    return currValue;
+}
+function totalField(totalId, givenValue) {
+    const totalAmount = document.getElementById(totalId);
+    const preAmount = parseFloat(totalAmount.innerText);
+    totalAmount.innerText = preAmount + givenValue;
+}
+function balaance() {
     const balance = document.getElementById('balance');
     const preBal = parseFloat(balance.innerText);
-    if (currDep > 0 && typeof currDep == 'number') {
-        depoAmount.innerText = preDepo + currDep;
-        balance.innerText = preBal + currDep;
+    return preBal;
+}
+function updateBalance(currBalance, isAdd) {
+    const balance = document.getElementById('balance');
+    const prebal = balaance();
+    if (isAdd == true) {
+        balance.innerText = prebal + currBalance;
     }
-    depoInput.value = '';
+    else {
+        balance.innerText = prebal - currBalance;
+    }
+}
+document.getElementById('depoSubmit').addEventListener('click', function () {
+    const currDep = givenInput('depoInput');
+    if (currDep > 0) {
+        totalField('depoAmount', currDep);
+        updateBalance(currDep, true);
+    }
 });
 document.getElementById('witSubmit').addEventListener('click', function () {
-    const withdraw = document.getElementById('withdraw');
-    const preWit = parseFloat(withdraw.innerText);
-    const witInput = document.getElementById('witInput');
-    const currWit = parseFloat(witInput.value);
-    const balance = document.getElementById('balance');
-    const preBal = parseFloat(balance.innerText);
-    if (currWit > 0 && typeof currWit == 'number' && preBal >= currWit) {
-        withdraw.innerText = preWit + currWit;
-        balance.innerText = preBal - currWit;
+    const currWit = givenInput('witInput');
+    const currbalance = balance();
+    if (currWit > 0 && currWit <= currbalance) {
+        totalField('withdraw', currWit);
+        updateBalance(currWit, false);
     }
-    witInput.value = '';
 });
